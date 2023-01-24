@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
-#include "InputActionValue.h"
 
 #include "ShootingFlight.generated.h"
 
@@ -81,7 +80,6 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = "Player Settings")
 	bool IsTrapped = false;
 
-	// void ChangeColor();
 	void ChangeOriginColor();
 	void ReserveChangeColor(float time);
 
@@ -89,17 +87,6 @@ public:
 	FDirectionModifier OnEnemyDirModify;
 
 private:
-	// legacy input 방식 함수들
-	/*UFUNCTION(BlueprintCallable)
-	void MoveHorizontal(float value);
-
-	UFUNCTION(BlueprintCallable)
-	void MoveVertical(float value);
-
-	UFUNCTION(BlueprintCallable)
-	void FireBullet();*/
-
-	// enhanced input 방식 함수들
 	UFUNCTION(BlueprintCallable)
 	void MoveHorizontal(const FInputActionValue& value);
 
@@ -122,9 +109,5 @@ private:
 
 	float h, v;
 	FVector direction;
-	FLinearColor InitColor;
-	FTimerHandle ColorTimer;
-	// UMaterialInstanceDynamic* MyMaterial;
-	UMaterialInstanceDynamic* DynamicMaterial;
 	float OriginMoveSpeed;
 };
